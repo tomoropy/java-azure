@@ -1,0 +1,30 @@
+# Terraform変数の設定例
+# このファイルをterraform.tfvarsにコピーして値を設定してください
+
+# 基本設定
+resource_group_name = "todo-app-rg"
+location           = "Japan East"
+app_name           = "todo-app"
+environment        = "dev"
+
+# MySQL設定
+mysql_admin_username = "tododbadmin"
+mysql_admin_password = "YourSecurePassword123!"  # 強力なパスワードに変更してください
+mysql_database_name  = "todoapp"
+mysql_sku_name       = "B_Standard_B1ms"  # 本番環境では B_Standard_B2s 以上を推奨
+mysql_storage_size_gb = 20
+
+# Container App設定
+container_cpu    = 0.5
+container_memory = "1Gi"
+min_replicas     = 1
+max_replicas     = 3
+docker_image_tag = "latest"
+
+# タグ設定
+tags = {
+  Project     = "TodoApp"
+  Environment = "dev"
+  ManagedBy   = "Terraform"
+  Owner       = "Name"
+}
